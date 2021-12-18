@@ -1,1 +1,1 @@
-web: rake all
+web: rake bot
