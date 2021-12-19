@@ -12,14 +12,14 @@ task :bot do
 end
 
 task :web do
-    Rack::Server.start(
-      Port: ENV["PORT"] || 4567,
-      app: Webserver.new,
-    )
-  end
+  Rack::Server.start(
+    Port: ENV["PORT"] || 4567,
+    app: Webserver.new,
+  )
+end
   
-  task :all do
-    Process.fork { Rake::Task["bot"].invoke }
-    Process.fork { Rake::Task["web"].invoke }
-    Process.waitall
-  end
+task :all do
+  Process.fork { Rake::Task["bot"].invoke }
+  Process.fork { Rake::Task["web"].invoke }
+  Process.waitall
+end
