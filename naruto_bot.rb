@@ -6,7 +6,9 @@ module NarutoBot
 
   @bot = Discordrb::Bot.new token: ENV["TOKEN"]
 
-  @bot.message(with_text: 'believe it') do |event|
+  words = ['believe','naruto', 'rollie', 'ranch', 'dab']
+
+  @bot.message(containing: words) do |event|
     event.respond 'believe it'
   end
 
