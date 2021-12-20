@@ -8,18 +8,23 @@ module NarutoBot
 
   @ramen_count = 0
 
-  words = ['believe','ramen', 'rollie', 'ranch', 'dab', 'fortnite']
+  @sleep_dur = 0.25
+
+  words = ['believe','rollie', 'ranch', 'dab', 'fortnite']
 
   be_nice = ['dbz', 'one piece', 'attack on titan', 'berserk', 'dragon ball', 'aot', 'cowboy bebop']
 
   @bot.message(with_text: 'hi naruto') do |event|
+    sleep @sleep_dur
     event.respond 'ohayo'
   end
   @bot.message(containing: words) do |event|
+    sleep @sleep_dur
     event.respond 'believe it'
   end
 
   @bot.message(containing: be_nice) do |event|
+    sleep @sleep_dur
     event.respond "i'm like right here. be nice to me"
   end
 
@@ -29,7 +34,13 @@ module NarutoBot
   end
 
   @bot.message(with_text: 'bye naruto') do |event|
+    sleep @sleep_dur
     event.respond 'byeharo'
+  end
+
+  @bot.message(with_text: 'ty naruto') do |event|
+    sleep @sleep_dur
+    event.respond 'welcome'
   end
 
   def self.run
