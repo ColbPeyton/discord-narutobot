@@ -65,8 +65,7 @@ module NarutoBot
   @bot.message(with_text: '!stinky') do |event|
     sleep @sleep_dur
     event.respond 'lil baby boi'
-    event.respond stinky.sample
-    if event.message.author.username == 'Mechasteak'
+    if event.message.author.username == 'top 7% in norms'
       event.respond 'Stinky mode online'
       event.respond 'what\'s the baby boi doing?'
       event.user.await!(timeout: 10) do |message|
@@ -79,8 +78,9 @@ module NarutoBot
         end
       end
       event.respond 'Stinky mode offline'
+    else
+      event.respond stinky.sample
     end
-
   end   
 
   @bot.message(content: words) do |event|
