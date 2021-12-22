@@ -66,6 +66,21 @@ module NarutoBot
     sleep @sleep_dur
     event.respond 'lil baby boi'
     event.respond stinky.sample
+    if event.message.author.username == 'Mechasteak'
+      event.respond 'Stinky mode online'
+      event.respond 'what\'s the baby boi doing?'
+      event.user.await!(timeout: 10) do |message|
+        if message.content == 'sleepin'
+          event.respond 'so cute. I hope he has a good rest. believe it'
+        elsif message.content == 'stinkin'
+          event.respond 'he\'s always stinkin. so cute. believe it'
+        else
+          event.respond 'he\'s such a good boy. believe it'
+        end
+      end
+      event.respond 'Stinky mode offline'
+    end
+
   end   
 
   @bot.message(content: words) do |event|
