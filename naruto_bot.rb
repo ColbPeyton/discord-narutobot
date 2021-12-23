@@ -102,6 +102,19 @@ We can be pro Fortnite gamers"
     event.respond play_fortnite.sample
   end
 
+  @bot.mention(in: 'naruto-bot-requests') do |event|
+    request = event.message.content.split(' ')[1..-1].join(' ')
+    sleep @sleep_dur
+    event.respond 'request-confirmed.'
+    event.respond "#{request} sounds like a great idea!"
+    # need to give naruto permissions
+    # event.message.pin
+    event.respond 'believe it.'
+  end
+    
+
+
+
   def self.run
     @bot.run
   end
