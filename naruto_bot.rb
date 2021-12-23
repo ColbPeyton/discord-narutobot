@@ -8,7 +8,8 @@ module NarutoBot
 
   @ramen_count = 0
 
-  @sleep_dur = 0.25
+  @sleep_dur = 0.5
+  @sleep_dur_long = 1
 
   words = ['believe','rollie', 'ranch', 'dab']
 
@@ -20,18 +21,18 @@ module NarutoBot
     'don\'t forget to thank the bus driver'
   ]
 
-  song ="We got a number one Victory Royale\n 
-  Yeah, Fortnite, we 'bout to get down (get down)\n
-  Ten kills on the board right now\n
-  Just wiped out Tomato Town\n
-  My friend just got downed\n
-  I revived him, now we're heading south-bound\n
-  Now we're in the Pleasant Park streets\n
-  Look at the map, go to the marked sheet\n
-  Take me to your Xbox to play Fortnite today\n
-  You can take me to Moisty Mire, but not Loot Lake\n
-  I really love to Chug Jug with you\n
-  We can be pro Fortnite gamers"
+  song ="We got a number one Victory Royale 
+Yeah, Fortnite, we 'bout to get down (get down)
+Ten kills on the board right now
+Just wiped out Tomato Town
+My friend just got downed
+I revived him, now we're heading south-bound
+Now we're in the Pleasant Park streets
+Look at the map, go to the marked sheet
+Take me to your Xbox to play Fortnite today
+You can take me to Moisty Mire, but not Loot Lake
+I really love to Chug Jug with you
+We can be pro Fortnite gamers"
 
   stinky = [
     'i wonder what he is doing',
@@ -49,7 +50,10 @@ module NarutoBot
   end
 
   @bot.message(with_text: '!song') do |event|
-    event.respond song
+    song.split("\n").each { |line|  
+      sleep @sleep_dur_long 
+      event.respond line
+    }
   end
 
   @bot.message(with_text: 'bye naruto') do |event|
