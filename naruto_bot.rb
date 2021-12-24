@@ -111,6 +111,11 @@ We can be pro Fortnite gamers"
     # event.message.pin
     event.respond 'believe it.'
   end
+
+  # requests
+  @bot.mention(start_with:'i love') do |event|
+    event.respond "i love you too :)"
+  end
     
 
 
