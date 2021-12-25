@@ -113,8 +113,8 @@ We can be pro Fortnite gamers"
   end
 
   # requests
-  @bot.mention(start_with:'i love') do |event|
-    event.respond "i love you too :)"
+  @bot.mention(contains: 'i love') do |event|
+    event.respond "i love you too #{event.user.mention} :)"
   end
     
 
