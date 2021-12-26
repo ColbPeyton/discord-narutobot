@@ -114,10 +114,31 @@ We can be pro Fortnite gamers"
 
   # requests
   @bot.mention(contains: 'i love') do |event|
+    sleep @sleep_dur
     event.respond "i love you too #{event.user.mention} :)"
   end
     
+  @bot.mention(contains: 'bark') do |event|
+    sleep @sleep_dur
+    event.respond "little dog or big dog?"
+    event.user.await!(timeout:2) do |message|
+      if message.content == 'little dog'
+        event.respond 'arf arf'
+      elsif message.content == 'big dog'
+        event.respond 'woof woof'
+      else
+        event.respond 'sorry I don\'t unserstand'
+      end
+    end
+    event.respond 'believe it.'
+  end
 
+  @bot.message(content: '!victory') do |event|
+    sleep @sleep_dur
+    event.respond "congrats on the win #{event.user.mention}"
+    event.respond 'https://www.youtube.com/watch?v=Z0Uh3OJCx3o'
+    event.respond 'believe it.'
+  end
 
 
   def self.run
